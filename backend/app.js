@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.use('/api/tareas', taskRoutes);
 
-const PORT = process.env.PORT || 3013;
+const PORT = process.env.PORT || 3012;
 app.listen(PORT, () => {
   console.log(`🚀 Servidor backend en marcha en http://localhost:${PORT}`);
 });

@@ -29,13 +29,13 @@ Cree un archivo `.env` en la raíz de `backend/` con el siguiente contenido:
 
 ```env
 MONGO_URI=mongodb://localhost:27017/gestorTareas
-PORT=3013
+PORT=3012
 ```
 
 Realmente ya está creado en el zip que te envío, pero he leído que es mejor que lo crees tú.
 
 
-> El puerto por defecto es `3013`.
+> El puerto por defecto es `3012`.
 
 ---
 
@@ -62,14 +62,14 @@ Realmente ya está creado en el zip que te envío, pero he leído que es mejor q
 
 - Crear una tarea:
 ```bash
-curl -X POST http://localhost:3013/api/tareas \
+curl -X POST http://localhost:3012/api/tareas \
   -H "Content-Type: application/json" \
   -d '{"titulo": "Test", "descripcion": "Desde curl"}'
 ```
 
 - Obtener todas las tareas:
 ```bash
-curl http://localhost:3013/api/tareas
+curl http://localhost:3012/api/tareas
 ```
 
 ---
