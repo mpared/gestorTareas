@@ -71,7 +71,15 @@ curl -X POST http://localhost:3012/api/tareas \
 ```bash
 curl http://localhost:3012/api/tareas
 ```
-
+- Modificar una tarea (substituir ID)
+```bash
+curl -X PUT http://localhost:3012/api/tareas/ID_DE_LA_TAREA \
+  -H "Content-Type: application/json" \
+  -d '{"completada": true}'
+```
+- Eliminar una tarea (substituir ID)
+```bash
+curl -X DELETE http://localhost:3012/api/tareas/ID_DE_LA_TAREA
 ---
 
 
