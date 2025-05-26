@@ -1,77 +1,99 @@
+ Gestor de Tareas - Aplicación Web Completa
 
-# Gestor de Tareas - Backend
-
-Este backend ha sido desarrollado con **Node.js**, **Express** y **MongoDB**. Permite gestionar tareas a través de una API REST completa.
-
----
-
-## Instrucciones 
-
-### 1. Requisitos previos
-
-- Tener **Node.js** y **npm** instalados
-- Tener **MongoDB** corriendo localmente 
-
+Este proyecto es una aplicación web para gestionar tareas de forma sencilla y eficiente. Permite añadir tareas con título y descripción, marcarlas como completadas y eliminarlas. Está construida aplicando el patrón **MVVM** con Vue 3 para el frontend, Express.js para el backend y MongoDB como base de datos.
 
 ---
 
-### 2. Instalación
+## Arquitectura MVVM aplicada
 
-Abra una terminal en la carpeta `/backend` del proyecto y ejecute:
+- **Modelo (M):**
+  - `model/Task.js` (backend): define la estructura de la tarea con Mongoose.
+  - `model/Task.js` (frontend): clase `Task` que representa la estructura en el ViewModel.
 
-`npm install`
+- **Vista (V):**
+  - `view/TaskList.vue`: muestra el formulario y la lista de tareas.
+  - Estilos y estructura HTML+CSS aplicados a la interfaz de usuario.
+
+- **ViewModel (VM):**
+  - `viewmodel/TaskViewModel.js`: gestiona el estado, sincroniza los datos entre la vista y el backend mediante fetch (crear, cargar, eliminar, modificar tareas).
 
 ---
 
-### 3. Configuración
+## Funcionalidades CRUD
 
-Cree un archivo `.env` en la raíz de `backend/` con el siguiente contenido:
+- **Crear:** formulario para añadir nuevas tareas con título y descripción.
+- **Leer:** carga automática de todas las tareas desde MongoDB.
+- **Modificar:** marcar o desmarcar una tarea como completada (checkbox).
+- **Eliminar:** eliminar una tarea de la lista (botón "Eliminar").
 
+> La edición directa del título o descripción no está implementada.
+
+---
+
+## Estructura del proyecto
+
+```
+gestorTareas/
+├── backend/
+│   ├── models/Task.js
+│   ├── controllers/taskController.js
+│   ├── routes/api.js
+│   ├── config/task.js
+│   ├── app.js
+│   └── .env
+├── frontend/
+│   ├── model/Task.js
+│   ├── view/TaskList.vue
+│   ├── viewmodel/TaskViewModel.js
+│   ├── App.vue
+│   └── main.js
+├── README.md
+└── .gitignore
+```
+
+---
+
+## Instrucciones de instalación y ejecución
+
+### Backend
+
+1. Accede a la carpeta `backend/`
+2. Instala las dependencias:
+```bash
+npm install
+```
+3. Crea un archivo `.env` con:
 ```env
 MONGO_URI=mongodb://localhost:27017/gestorTareas
 PORT=3013
 ```
-
-Realmente ya está creado en el zip que te envío, pero he leído que es mejor que lo crees tú.
-
-
-> El puerto por defecto es `3013`.
-
----
-
-### 4. Ejecución
-
-- Para iniciar normalmente:
- `` node app.js ``
- 
-
----
-
-### 5. Endpoints disponibles
-
-| Método | Ruta                  | Descripción                  |
-|--------|-----------------------|------------------------------|
-| GET    | /api/tareas           | Obtener todas las tareas     |
-| POST   | /api/tareas           | Crear una nueva tarea        |
-| PUT    | /api/tareas/:id       | Actualizar una tarea         |
-| DELETE | /api/tareas/:id       | Eliminar una tarea           |
-
----
-
-### 6. Pruebas rápidas con `curl`
-
-- Crear una tarea:
+4. Ejecuta el servidor:
 ```bash
-curl -X POST http://localhost:3013/api/tareas \
-  -H "Content-Type: application/json" \
-  -d '{"titulo": "Test", "descripcion": "Desde curl"}'
+node app.js
 ```
 
-- Obtener todas las tareas:
+### Frontend
+
+1. Accede a la carpeta `frontend/`
+2. Asegúrate de que el archivo `.env` contenga:
+```env
+VITE_API_URL=http://localhost:3013/api/tareas
+```
+3. Instala las dependencias:
 ```bash
-curl http://localhost:3013/api/tareas
+npm install
+```
+4. Ejecuta la aplicación:
+```bash
+npm run dev
 ```
 
 ---
 
+## Repositorio GitHub
+
+https://github.com/mpared/gestorTareas.git
+
+
+---
 
