@@ -5,7 +5,7 @@ Este backend ha sido desarrollado con **Node.js**, **Express** y **MongoDB**. Pe
 
 ---
 
-## Instrucciones 
+## Backend 
 
 ### 1. Requisitos previos
 
@@ -45,7 +45,28 @@ Realmente ya está creado en el zip que te envío, pero he leído que es mejor q
  `` node app.js ``
  
 
----
+
+
+
+## Frontend
+
+1. Accede a la carpeta `frontend/`  
+2. Asegúrate de que el archivo `.env` contenga:
+```env
+VITE_API_URL=http://213.97.62.3:3012/api/tareas
+```
+3. Instala las dependencias:
+```bash
+npm install
+```
+4. Ejecuta la aplicación:
+```bash
+npm run dev
+
+```
+## Repositorio GitHub
+https://github.com/mpared/gestorTareas.git
+
 
 ### 5. Endpoints disponibles
 
@@ -59,27 +80,30 @@ Realmente ya está creado en el zip que te envío, pero he leído que es mejor q
 ---
 
 ### 6. Pruebas rápidas con `curl`
+> Asegúrate de sustituir `ID_DE_LA_TAREA` por el ID real de una tarea.
 
-- Crear una tarea:
+- **Crear una tarea:**
 ```bash
-curl -X POST http://localhost:3012/api/tareas \
+curl -X POST http://213.97.62.3:3012/api/tareas \
   -H "Content-Type: application/json" \
   -d '{"titulo": "Test", "descripcion": "Desde curl"}'
 ```
 
-- Obtener todas las tareas:
+- **Obtener todas las tareas:**
 ```bash
-curl http://localhost:3012/api/tareas
+curl http://213.97.62.3:3012/api/tareas
 ```
-- Modificar una tarea (substituir ID)
+
+- **Modificar una tarea (marcar como completada):**
 ```bash
-curl -X PUT http://localhost:3012/api/tareas/ID_DE_LA_TAREA \
+curl -X PUT http://213.97.62.3:3012/api/tareas/ID_DE_LA_TAREA \
   -H "Content-Type: application/json" \
   -d '{"completada": true}'
 ```
-- Eliminar una tarea (substituir ID)
+
+- **Eliminar una tarea:**
 ```bash
-curl -X DELETE http://localhost:3012/api/tareas/ID_DE_LA_TAREA
----
+curl -X DELETE http://213.97.62.3:3012/api/tareas/ID_DE_LA_TAREA
+```
 
 

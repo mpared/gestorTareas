@@ -64,8 +64,9 @@ npm install
 ```
 3. Crea un archivo `.env` con:
 ```env
-MONGO_URI=mongodb://localhost:27017/gestorTareas
+MONGO_URI=mongodb://213.97.62.3:27017/gestorTareas
 PORT=3012
+
 ```
 4. Ejecuta el servidor:
 ```bash
@@ -77,7 +78,7 @@ node app.js
 1. Accede a la carpeta `frontend/`
 2. Asegúrate de que el archivo `.env` contenga:
 ```env
-VITE_API_URL=http://localhost:3012/api/tareas
+VITE_API_URL=http://213.97.62.3:3012/api/tareas
 ```
 3. Instala las dependencias:
 ```bash
@@ -87,13 +88,11 @@ npm install
 ```bash
 npm run dev
 ```
-
 ---
 
 ## Repositorio GitHub
 
 https://github.com/mpared/gestorTareas.git
-
 
 ---
 
