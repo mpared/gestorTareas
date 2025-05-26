@@ -8,22 +8,23 @@
       <button type="submit">Añadir tarea</button>
     </form>
 
-    <ul>
-    <li v-for="tarea in state.tareas" :key="tarea._id">
-      <label>
-        <input
-          type="checkbox"
-          v-model="tarea.completada"
-          @change="marcarCompletada(tarea)"
-        />
-        <strong :style="{ textDecoration: tarea.completada ? 'line-through' : 'none' }">
-          {{ tarea.titulo }}
-        </strong>
-      </label>
-      <p>{{ tarea.descripcion }}</p>
-      <button @click="() => { console.log('Eliminando:', tarea); eliminarTarea(tarea._id) }">Eliminar</button>
-    </li>
-
+    <ul class="task-list">
+      <li class="task-item" v-for="tarea in state.tareas" :key="tarea._id">
+        <div class="task-header">
+          <label class="checkbox-label">
+            <input
+              type="checkbox"
+              v-model="tarea.completada"
+              @change="marcarCompletada(tarea)"
+            />
+            <span :style="{ textDecoration: tarea.completada ? 'line-through' : 'none' }">
+              {{ tarea.titulo }}
+            </span>
+          </label>
+        </div>
+        <p>{{ tarea.descripcion }}</p>
+        <button @click="() => eliminarTarea(tarea._id)">Eliminar</button>
+      </li>
     </ul>
 
     <p v-if="state.error">{{ state.error }}</p>
@@ -47,5 +48,4 @@ onMounted(() => {
     console.log('Tareas cargadas:', state.tareas)
   });
 });
-
 </script>
